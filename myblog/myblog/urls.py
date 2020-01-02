@@ -18,6 +18,14 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('myblog_yangbo/', include(('myblog_yangbo.urls','myblog_yangbo'),namespace='myblog_yangbo')),
 
+=======
+
+    path('blog_hxq/', include('blog_hxq.urls', namespace='blog')),
+    path('blog_zhaojianbing/',include('blog_zhaojianbing.urls',namespace = 'blog_zhaojianbing')),
+    path('blog/', include('blog.urls', namespace='blog')),
+    path('MoTangS/',include('motangsTest.urls')),
+>>>>>>> 4ffb17588015301ddb9ade58b4addfc6cdecfa2a
 ]
