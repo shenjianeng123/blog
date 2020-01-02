@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
+    'myblog_yangbo.apps.MyblogYangboConfig',
+=======
 
     'blog_liwenhao.apps.BlogLiwenhaoConfig',
 
@@ -45,6 +48,7 @@ INSTALLED_APPS = [
     'blog_yuwenq.apps.BlogYuwenqConfig'
     'motangsTest.apps.MotangstestConfig',
 
+>>>>>>> 4ffb17588015301ddb9ade58b4addfc6cdecfa2a
 ]
 
 MIDDLEWARE = [

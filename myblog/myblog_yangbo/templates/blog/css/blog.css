@@ -1,0 +1,19 @@
+body{background:green }
+
+#content{
+    width:80px;
+    height:25px;
+    text-indent:20px;
+    border: black solid 1px;
+    background:red;
+    float: left;
+}
+
+#content{
+    width:80px;
+    height:25px;
+    text-indent:20px;
+    border: black solid 1px;
+    background:red;
+    float: left;
+}
