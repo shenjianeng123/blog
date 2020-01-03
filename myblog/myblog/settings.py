@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+SITE_ID = 1  # app站点的序号 #没有报错：Site matching query does not exist.
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,18 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
+    
     'myblog_yangbo.apps.MyblogYangboConfig',
-=======
-
     'blog_liwenhao.apps.BlogLiwenhaoConfig',
-
     'blog_zhaojianbing.apps.BlogZhaojianbingConfig',
     'blog_hxq.apps.BlogHxqConfig',
     'blog_yuwenq.apps.BlogYuwenqConfig'
-    'motangsTest.apps.MotangstestConfig',
 
->>>>>>> 4ffb17588015301ddb9ade58b4addfc6cdecfa2a
+    'motangsTest.apps.MotangstestConfig',
+    'taggit',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'django.contrib.postgres',
+
 ]
 
 MIDDLEWARE = [
@@ -85,13 +86,20 @@ WSGI_APPLICATION = 'myblog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog',
+        'USER': 'blog',
+        'PASSWORD': 'blog',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -117,6 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'zh-hans'
 
+
 TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
@@ -130,3 +139,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+
+
+# Host for sending email.
+EMAIL_HOST = 'smtp.qq.com'                 # 发送方的smtp服务器地址
+
+# Port for sending email.
+EMAIL_PORT = 587                           # smtp服务端口
+
+# Optional SMTP authentication information for EMAIL_HOST.
+EMAIL_HOST_USER = '1580120495@qq.com '       # 发送方 邮箱地址
+EMAIL_HOST_PASSWORD = 'hpcdtiycrabiibaj'   # 获得的  授权码
+EMAIL_USE_TLS = True                       # 必须为True
+EMAIL_USE_SSL = False
+EMAIL_SSL_CERTFILE = None
+EMAIL_SSL_KEYFILE = None
+EMAIL_TIMEOUT = None
+
+# Default email address to use for various automated correspondence from
+# the site managers.
+DEFAULT_FROM_EMAIL = '1580120495@qq.com'  # 和 EMAIL_HOST_USER  相同
