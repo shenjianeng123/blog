@@ -15,8 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.contrib.sitemaps.views import sitemap
+from motangsTest.sitemaps import PostSitemap#能直接引用app肯定不是..相位寻找应该是路径
+
+sitemaps = {'posts': PostSitemap,}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('MoTangS/',include('motangsTest.urls')),
+    path('MoTangS/',include(('motangsTest.urls','motangsTest'),namespace='MoTangSblog')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
+
 ]
